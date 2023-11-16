@@ -1,9 +1,11 @@
+# forward propogate through the neural network to obtain prediction
 def predict(network, input):
     output = input
     for layer in network:
         output = layer.forward(output)
     return output
 
+# train through backwards propogation
 def train(network, loss, loss_prime, x_train, y_train, epochs = 1000, learning_rate = 0.01, verbose = True):
     for e in range(epochs):
         error = 0

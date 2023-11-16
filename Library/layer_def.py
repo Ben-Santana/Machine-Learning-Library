@@ -1,8 +1,7 @@
 import numpy as np
 
-# Base Layer:
 # Dense Layer --- Where all nodes in each layer are connected to all nodes in the next layer.
-# 
+# Activation Layer --- Translates nodes into a value between -1 and 1
 # 
 # 
 # 
@@ -52,6 +51,7 @@ class Activation(Layer):
         return np.multiply(output_gradient, self.activation_prime(self.input))
     
 
+# Activation layer utilizing hyberbolic tangent function
 class Tanh(Activation):
     def __init__(self):
         def tanh(x):
