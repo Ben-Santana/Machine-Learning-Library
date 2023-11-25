@@ -1,4 +1,4 @@
-# Neural Network Project
+# Neural Network Library
 
 This is a simple implementation of a neural network in Python, focusing on dense layers and activation functions. The neural network is designed to handle regression tasks, and it includes a mean squared error (MSE) loss function for training through back propogation.
 
