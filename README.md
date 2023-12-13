@@ -13,4 +13,4 @@ git clone https://github.com/Ben-Santana/Machine-Learning-Library.git
 
 ---
 
-> Run my [MNIST Project](https://github.com/Ben-Santana/AI_Number_Identifier) to see an example of the library in use.
+> Run my [AI Number Generator](https://github.com/Ben-Santana/AI_Number_Generator) to see an example of the library in use.
