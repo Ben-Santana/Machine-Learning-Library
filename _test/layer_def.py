@@ -1,13 +1,5 @@
 import numpy as np
-
-# Base Layer:
-# Dense Layer --- Where all nodes in each layer are connected to all nodes in the next layer.
-# 
-# 
-# 
-# 
-# 
-# 
+import json
 
 class Layer:
     def __init__(self):
@@ -67,3 +59,33 @@ def mse(y_true, y_pred):
 
 def mse_prime(y_true, y_pred):
     return 2 * (y_pred - y_true) / np.size(y_true)
+
+
+#must have a 'saves.json' file
+#saves all weights and biases of a layer array(network) to a saves.json file
+def save(layers, filename='saves.json'):
+    network_data = []
+
+    for layer in layers:
+        layer_data = {}
+        if isinstance(layer, Dense):
+            layer_data["weights"] = layer.weights.tolist()
+            layer_data["bias"] = layer.bias.tolist()
+        elif isinstance(layer, Activation):
+            layer_data["activation"] = layer.activation.__name__
+            layer_data["activation_prime"] = layer.activation_prime.__name__
+        
+        network_data.append(layer_data)
+
+    with open(filename, 'w') as file:
+        json.dump({"network": network_data}, file, indent=2)
+        
+#loads weights and biases onto compatible layer array(network) from saves.json file
+def load(network, filename='saves.json'):
+    with open(filename, 'r') as file:
+        data = json.load(file)
+
+    for layer, layer_data in zip(network, data['network']):
+        if isinstance(layer, Dense):
+            layer.weights = np.array(layer_data["weights"])
+            layer.bias = np.array(layer_data["bias"])

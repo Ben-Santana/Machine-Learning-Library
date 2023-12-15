@@ -12,16 +12,17 @@ Y = np.reshape([[0], [1], [1], [0]], (4, 1, 1))
 
 #create network
 network = [
-    Dense(2, 5), 
+    Dense(2, 3), 
     Tanh(), 
-    Dense(5, 1), 
+    Dense(3, 1), 
     Tanh()
 ]
 
 #train
-train(network, mse, mse_prime, X, Y, epochs=600000, learning_rate=0.1)
+train(network, mse, mse_prime, X, Y, epochs=50000, learning_rate=0.1)
 
 #--------------------------------------------------------------------------------
+# 🍝 code for testing xor in terminal
 
 print("To exit trials at any point type 2")
 
@@ -29,7 +30,7 @@ while True:
     input_one = int(input("First Value: "))
     if (input_one == 2): break
     input_two = int(input("Second Value: "))
-    if (input_one == 2): break
+    if (input_two == 2): break
 
     trial = [input_one, input_two]
     result = 0;
